@@ -1,0 +1,26 @@
+mat-icon {
+    margin-right: 1em;
+    color: black;
+}
+
+
+ .filter-container {
+    display: flex;
+    flex-direction: row;
+    max-height: 40px;
+}
+
+.filter-buttons {
+     flex: 4 0 0;
+}
+.filter-search {
+   flex: 1 0 0;
+}
+
+::ng-deep .mat-form-field-wrapper {
+   
+        margin-left: 10px;
+        max-height: 60px;
+    
+    
+}
