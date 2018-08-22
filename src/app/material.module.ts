@@ -5,8 +5,9 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule, 
+  MatCardModule,
   MatListModule,
+  MatGridListModule,
   MatTabsModule,
   MatButtonToggleModule,
   MatInputModule,
@@ -22,6 +23,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
     MatCardModule,
     MatTabsModule,
     MatButtonToggleModule,
@@ -34,6 +36,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
     MatCardModule,
     MatTabsModule,
     MatButtonToggleModule,
@@ -41,4 +44,4 @@ import {
     MatDialogModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

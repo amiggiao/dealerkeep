@@ -15,19 +15,19 @@ export interface User {
 }
 
 export interface ILocation {
-    locationName: string,
-       lng: string,
-       activity: string,
-       created: string,
-       bearing: number,
-       accuracy: number,
-       speed: number,
-       duration: number,
-       locationColor: string,
-       locationId: number,
-       statusName: string,
-       personId: number,
-       id: number,
-       lat: string,
-       statusCode: number,
+    locationName: string;
+    lng: string;
+    activity: string;
+    created: string;
+    bearing: number;
+    accuracy: number;
+    speed: number;
+    duration: number;
+    locationColor: string;
+    locationId: number;
+    statusName: string;
+    personId: number;
+    id: number;
+    lat: string;
+    statusCode: number;
 }

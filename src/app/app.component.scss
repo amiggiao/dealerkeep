@@ -1,26 +1,76 @@
-mat-icon {
-    margin-right: 1em;
+html,
+body {
+  height: 100%;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+mat-toolbar {
+  flex: 0 1 auto;
+  .toolbar-icon {
+    width: 32px;
+  }
+}
+
+.filter-container {
+  flex: 0 1 auto;
+  background-color: whitesmoke;
+  border-bottom: 1px solid silver;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  .filter-buttons {
+    margin: 0 auto;
+  }
+  .filter-search {
+    flex: 1;
+    margin-right: 10px;
+  }
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.employee-row {
+  border-bottom: 1px solid silver;
+}
+
+.employee-title, .sampled-time {
+  color: silver;
+  font-style: italic;
+}
+
+.location-info {
+  font-size: 0.75em;
+  height: 56px !important;
+  .mat-list-avatar {
+    width: 0;
+    align-self: normal;
+  }
+}
+
+.contact-buttons {
+  flex: 1;
+  .mat-icon {
     color: black;
-}
-
-
- .filter-container {
-    display: flex;
-    flex-direction: row;
-    max-height: 40px;
-}
-
-.filter-buttons {
-     flex: 4 0 0;
-}
-.filter-search {
-   flex: 1 0 0;
+  }
 }
 
 ::ng-deep .mat-form-field-wrapper {
-   
-        margin-left: 10px;
-        max-height: 60px;
-    
-    
+  margin-left: 10px;
+  max-height: 60px;
+}
+
+mat-icon {
+  margin-right: 0.5em;
+}
+
+mat-list-item.location-info.mat-line.mat-list-item.mat-3-line.mat-list-item-avatar.mat-list-item-with-avatar .mat-list-item-content {
+  padding: 0 !important;
 }

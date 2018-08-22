@@ -5,7 +5,7 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import {UserService} from './user.service';
+import { UserService } from './user.service';
 import { UserFilterPipe } from './userFilter.pipe';
 
 
@@ -19,9 +19,9 @@ import { UserFilterPipe } from './userFilter.pipe';
     MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule    
+    FormsModule
   ],
- 
+
   providers: [
     UserService
   ],

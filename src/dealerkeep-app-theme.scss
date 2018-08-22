@@ -1,35 +1,21 @@
-
 @import '~@angular/material/theming';
-
 @include mat-core();
-
 $dealerkeep-app-primary:mat-palette($mat-blue-grey, 800, 700, 900);
-$dealerkeep-app-accent:  mat-palette($mat-light-green, 700, 500, 800);  
+$dealerkeep-app-accent : mat-palette($mat-light-green, 700, 500, 800);
 //$app-background : mat-palette($mat-pink);
 $dealerkeep-app-theme: mat-light-theme($dealerkeep-app-primary, $dealerkeep-app-accent);
-
 @mixin mix-app-theme($app-theme) {
-    $primary: map-get($app-theme, primary);
-    $accent: map-get($app-theme, accent);
-  
-    
-    .mat-toolbar.mat-primary {
-      background-color: mat-color($primary);
-      color: mat-color($primary, default-contrast);
-    }
-
-    .mat-input-element {
-        background-color: mat-color($primary);
-    }
-    .mat-form-field-underline{
-        background-color: mat-color($primary);
-    }
-  
+  $primary: map-get($app-theme, primary);
+  $accent: map-get($app-theme, accent);
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(to bottom right, #000000 0%, #f0f0f0 150%); //background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
   }
-  
-  // Include the mixin
-  @include mix-app-theme($dealerkeep-app-theme);
-
-
-
-
+  .mat-input-element {
+    background-color: mat-color($primary);
+  }
+  .mat-form-field-underline {
+    background-color: mat-color($primary);
+  }
+} // Include the mixin
+@include mix-app-theme($dealerkeep-app-theme);

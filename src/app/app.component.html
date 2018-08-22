@@ -1,90 +1,51 @@
+<div id="container">
+  <mat-toolbar color="primary">
+    <span>
+      <mat-icon class="toolbar-icon" svgIcon="lexus"></mat-icon>
+    </span>
+    <span>Lexus of Woodland Hills</span>
+    <span flex></span>
+  </mat-toolbar>
 
-
-  <div>
-    
-    <mat-toolbar color="primary">
-      
-      <span><mat-icon>commute</mat-icon></span>
-      <span>Lexus of Woodland Hills</span> 
-      
-      <span flex></span>
-
-    
-      
-    </mat-toolbar>
-
-    <div class="filter-container">
-        <mat-button-toggle-group class="filter-buttons" name="fontStyle" aria-label="Font Style" value="0" #group="matButtonToggleGroup">
-            <mat-button-toggle (click)="toggleUserList(0)" value="0">All</mat-button-toggle>
-            <mat-button-toggle (click)="toggleUserList(1)" value="1">Here</mat-button-toggle>
-            <mat-button-toggle (click)="toggleUserList(2)" value="2">Away</mat-button-toggle>
-        </mat-button-toggle-group>
-
-        <mat-form-field class="filter-search">
-          <mat-placeholder><mat-icon>search</mat-icon>Search</mat-placeholder>
-            <input matInput class="search-input" type="text" [(ngModel)]="term">
-          </mat-form-field>     
-    </div>
-          
-    <mat-card *ngFor="let user of displayedUsers| userFilter:term">
-        <mat-card-header >
-            
-            <img mat-card-avatar  src="{{user.avatar}}"/>
-            
-            <mat-card-title>
-                <span>{{user.firstName}} {{user.lastName}}</span>
-                <span class="user-title" *ngIf="user.title"> - {{user.title}}</span>
-                
-            </mat-card-title>
-            <mat-card-subtitle *ngIf="user.location">
-                <mat-icon style="width:1px" [style.color]="user.location.locationColor ? user.location.locationColor : ''">location_on</mat-icon> 
-                <span>{{user.location.locationName}}  of {{showTimeAgo(user.location.created)}}</span>
-            </mat-card-subtitle>
-        </mat-card-header>
-       
-        <mat-card-actions layout="row" class="buttons_top" layout-align="center center">
-            <a *ngIf="user.callNumber" href="tel://{{user.callNumber}}" aria-label="call" aria-hidden="false">
-              <mat-icon >phone</mat-icon>
-            </a>
-            <a  *ngIf="user.email" href="mailto://{{user.email}}" aria-label="call" aria-hidden="false">
-              <mat-icon >email</mat-icon>
-            </a>           
-            <mat-icon >chat</mat-icon>
-            <mat-icon>record_voice_over</mat-icon>  
-        </mat-card-actions>
-       
-    </mat-card>
-     
-    
-
-    <mat-list>
-        <mat-list-item *ngFor="let user of displayedUsers| userFilter:term">
-          <img matListAvatar src="{{user.avatar}}" alt="user.lastName">
-          <h3 matLine> {{user.firstName}} {{user.lastName}} </h3>
-          <div matLine *ngIf="user.title">
-            {{user.title}}
-            <div *ngIf="user.location != null">
-              {{user.location.locationName}}
-            </div>
-
-          </div>
-         
-          <a *ngIf="user.callNumber" href="tel://{{user.callNumber}}" aria-label="call" aria-hidden="false">
-            <mat-icon >phone</mat-icon>
-          </a>
-          <a  *ngIf="user.email" href="mailto://{{user.email}}" aria-label="call" aria-hidden="false">
-            <mat-icon >email</mat-icon>
-          </a>           
-          <mat-icon >chat</mat-icon>
-          <mat-icon>record_voice_over</mat-icon>
-        </mat-list-item>
-      </mat-list>   
-    
-   
+  <div class="filter-container">
+    <mat-form-field class="filter-search">
+      <mat-placeholder>
+        <mat-icon>search</mat-icon>Search</mat-placeholder>
+      <input matInput class="search-input" type="text" [(ngModel)]="term">
+    </mat-form-field>
+    <mat-button-toggle-group class="filter-buttons" name="fontStyle" aria-label="Font Style" value="0" #group="matButtonToggleGroup">
+      <mat-button-toggle (click)="toggleUserList(0)" value="0">All</mat-button-toggle>
+      <mat-button-toggle (click)="toggleUserList(1)" value="1">Here</mat-button-toggle>
+      <mat-button-toggle (click)="toggleUserList(2)" value="2">Away</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
-
-     
- 
-
-
-
+  <div class="content">
+    <mat-list>
+      <mat-list-item class="employee-row" *ngFor="let user of displayedUsers| userFilter:term">
+        <img matListAvatar src="{{user.avatar}}" alt="user.lastName">
+        <h3 matLine class="employee-name"> {{user.firstName}} {{user.lastName}} </h3>
+        <span matLine class="employee-title" *ngIf="user.title">
+          {{user.title}}
+        </span>
+        <div class="contact-buttons">
+          <a *ngIf="user.callNumber" href="tel://{{user.callNumber}}" aria-label="call" aria-hidden="false">
+            <mat-icon>phone</mat-icon>
+          </a>
+          <a *ngIf="user.callNumber" href="sms://{{user.callNumber}}" aria-label="call" aria-hidden="false">
+            <mat-icon>chat</mat-icon>
+          </a>
+          <a *ngIf="user.email" href="mailto://{{user.email}}" aria-label="call" aria-hidden="false">
+            <mat-icon>email</mat-icon>
+          </a>
+        </div>
+        <div matLine></div>
+        <div matLine></div>
+        <mat-list-item matLine class="location-info" *ngIf="user.location != null">
+          <mat-icon matListAvatar [style.color]="user.location.locationColor ? user.location.locationColor : ''">location_on</mat-icon>
+          <div matLine class="location-name">{{user.location.locationName}}</div>
+          <div matLine class="sampled-time">{{showTimeAgo(user.location.created)}}</div>
+        </mat-list-item>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

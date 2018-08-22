@@ -9,8 +9,8 @@ export class UserFilterPipe implements PipeTransform {
         if (!userList || !filter) {
             return userList;
         }
-        var name = filter.toLowerCase();
-        return userList.filter(user => user.firstName.toLowerCase().indexOf(name) !== -1 || 
-                                user.lastName.toLowerCase().indexOf(name) !== -1);
+        const name = filter.toLowerCase();
+        return userList.filter(user => user.firstName.toLowerCase().indexOf(name) !== -1 ||
+            user.lastName.toLowerCase().indexOf(name) !== -1);
     }
 }
